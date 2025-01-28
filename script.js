@@ -47,3 +47,20 @@ themeToggle.addEventListener('click', () => {
         info.style.animation = null; // Restore animation
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Add scroll listener only for smaller screens
+    window.addEventListener('scroll', function() {
+        if (window.innerWidth <= 1200) { // Only apply on smaller screens
+            var infoElement = document.querySelector('.header-right .info');
+
+            // Check if the scroll position is greater than 100px
+            if (window.scrollY > 100) {
+                infoElement.classList.add('header-hidden');
+            } else {
+                infoElement.classList.remove('header-hidden');
+            }
+        }
+    });
+});
+  
